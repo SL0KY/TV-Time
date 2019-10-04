@@ -1,4 +1,4 @@
-# projet
+# TV-Time
 
 ## Project setup
 ```
