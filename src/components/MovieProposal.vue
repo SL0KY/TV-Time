@@ -13,7 +13,7 @@
          </div>          
      </div>
 
-     <form @submit.prevent="getNewMovie()">
+     <form v-if="this.movie.image == ''" @submit.prevent="getNewMovie()">
         <button>Get movie</button>
     </form>
  </div>
