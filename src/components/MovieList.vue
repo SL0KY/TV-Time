@@ -1,6 +1,12 @@
 <template>
  <div>
-     <movie-item v-for="movie in movies" :key="movie.id" :movie="movie"></movie-item>
+     <div class="row">
+        <h2 class="movieList__h2 col-12 text-left">Films vu <a class="movieList__a">Tout voir...</a></h2>
+        <movie-item class="col-6" v-for="movie in movies.slice(movies.length - 4, movies.length )" :key="movie.id" :movie="movie"></movie-item>
+     </div>
+     <form @submit.prevent="clearStorage()">
+        <button>Clear localstorage</button>
+     </form>
  </div>
 </template>
 
@@ -16,9 +22,19 @@ export default Vue.extend({
     computed: {
         ...mapState('movies', ['movies']),
     },
+    methods: {
+        clearStorage() : void {
+            this.$store.dispatch('movies/clearStorage');
+        }
+    },
 });
 </script>
 
 <style lang="scss" scoped>
-
+    .movieList__h2{
+        margin-top: 30px;
+    }
+    .movieList__a{
+        font-size: 18px;
+    }
 </style>

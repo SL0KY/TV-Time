@@ -36,10 +36,7 @@ export default Vue.extend({
     },
     methods: {
         getNewMovie(): void {
-            this.$store.dispatch('movieproposal/getNewMovie', {movie: this.movie, id: this.getRandomId()});
-        },
-        getRandomId(): number{
-           return Math.floor(Math.random() * (Math.floor(430000) - Math.ceil(1) + 1)) + Math.ceil(1)
+            this.$store.dispatch('movieproposal/getNewMovie', {movie: this.movie});
         },
         addMovie(): void{
             this.$store.dispatch('movies/addMovie', {movie: this.movie});
