@@ -57,6 +57,10 @@ const movies: Module<{movies: Movie[]}, any> = {
                     this.getNewMovie(state, payload);
                 }
             });
+        },
+        removeMovie(state, payload: {movie : Movie}) {
+            var pos = state.movies.indexOf(payload.movie);
+            state.movies.splice(pos, 1);
         }
     },
     actions: {
@@ -79,6 +83,10 @@ const movies: Module<{movies: Movie[]}, any> = {
         clearStorage(context) {
             localStorage.clear();
             location.reload();
+        },
+        removeMovie(context, payload: {movie : Movie}) {
+            context.commit('removeMovie', payload);
+            context.dispatch('save');
         },
     },
 }
