@@ -9,7 +9,7 @@
             <button @click.prevent="addMovie()" class="movie_proposal__btn1">Je l'ai vu</button>             
          </div>
          <div class="col-6 pr-0 movie_proposal__col62">
-            <button class="movie_proposal__btn2">Je veux le voir</button>             
+            <button @click.prevent="addMovieToWatch()" class="movie_proposal__btn2">Je veux le voir</button>             
          </div>          
      </div>
 
@@ -38,8 +38,11 @@ export default Vue.extend({
         getNewMovie(): void {
             this.$store.dispatch('movieproposal/getNewMovie', {movie: this.movie});
         },
-        addMovie(): void{
+        addMovie(): void {
             this.$store.dispatch('movies/addMovie', {movie: this.movie});
+        },
+        addMovieToWatch() : void {
+            this.$store.dispatch('movies/addMovieToWatch', {movie: this.movie});
         },
     },
 });

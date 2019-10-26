@@ -9,35 +9,36 @@ const movieproposal: Module<{movie: Movie}, any> = {
 
     },
     mutations: {
-        getNewMovie(state, payload: {movie : Movie}) {
-            Axios.get('https://api.themoviedb.org/3/movie/' + getRandomId() +'?api_key=37a283d2876f075d46abb94720f8ec77').then(response => {
-                if (response.data.adult == false) {
-                    payload.movie.id = response.data.id;
-                    payload.movie.name = response.data.original_title;
-                    if(response.data.poster_path != null)
-                    {
-                        payload.movie.image = 'https://image.tmdb.org/t/p/w500' + response.data.poster_path;
-                    }
-                    else
-                    {
-                        payload.movie.image = '/img/no-image-available.png';
-                    }
-                 }
-                 else
-                 {
-                     this.getNewMovie(state, payload);
-                 }
-            }).catch(error => {
-                if(error.response.status == 404)
-                {
-                    this.getNewMovie(state, payload);
-                }
-            });
+        getNewMovie(state : any, payload: {movie : Movie, response : any}) {
+            payload.movie.id = payload.response.data.id;
+            payload.movie.name = payload.response.data.original_title;
+            if(payload.response.data.poster_path != null)
+            {
+                payload.movie.image = 'https://image.tmdb.org/t/p/w500' + payload.response.data.poster_path;
+            }
+            else
+            {
+                payload.movie.image = '/img/no-image-available.png';
+            } 
         }
     },
     actions: {
         getNewMovie(context, payload: {movie : Movie}) {
-            context.commit('getNewMovie', payload);
+            Axios.get('https://api.themoviedb.org/3/movie/' + getRandomId() +'?api_key=37a283d2876f075d46abb94720f8ec77').then(response => {   
+            if (response.data.adult == false) {
+                    var movie = payload.movie; 
+                    context.commit('getNewMovie', { movie, response });
+                 }
+                 else
+                 {
+                    context.dispatch('getNewMovie', payload);
+                 }
+            }).catch(error => {
+                if(error.response.status == 404)
+                {
+                    context.dispatch('getNewMovie', payload);
+                }
+            });
         },
     },
 }
