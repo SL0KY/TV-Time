@@ -19,8 +19,10 @@ export default Vue.extend({
         movie: Object as () => Movie,
     },
     methods:{
-        removeMovie() : void{
-            this.$store.dispatch('movies/removeMovie', {movie : this.movie})
+        removeMovie() : void{       
+            var url = document.location.href;
+            var page = url.substring(url.lastIndexOf( "/" )+1 );
+            this.$store.dispatch('movies/removeMovie', {movie : this.movie, page})
         }
     },
 });

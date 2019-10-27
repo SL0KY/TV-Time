@@ -1,8 +1,8 @@
 <template>
  <div>
      <div class="row">
-        <h2 class="movieList__h2 col-12 text-left">Movies watched :</h2>
-        <movie-item-edit class="col-6" v-for="movie in movies" :key="movie.id" :movie="movie"></movie-item-edit>
+        <h2 class="movieList__h2 col-12 text-left">Movies to watch :</h2>
+        <movie-item-edit class="col-6" v-for="movieToWatch in toWatch" :key="movieToWatch.id" :movie="movieToWatch"></movie-item-edit>
      </div>
  </div>
 </template>
@@ -17,7 +17,7 @@ export default Vue.extend({
         MovieItemEdit,
     },
     computed: {
-        ...mapState('movies', ['movies']),
+        ...mapState('movies', ['toWatch']),
     },
 });
 </script>

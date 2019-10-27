@@ -66,9 +66,18 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
                 payload.movie.image = '/img/no-image-available.png';
             }
         },
-        removeMovie(state, payload: {movie : Movie}) {
-            var pos = state.movies.indexOf(payload.movie);
-            state.movies.splice(pos, 1);
+        removeMovie(state, payload: {movie : Movie, page : String}) {
+            switch(payload.page){
+                case 'movies' :
+                    var pos = state.movies.indexOf(payload.movie);
+                    state.movies.splice(pos, 1);
+                    break;
+                case 'toWatch' :
+                    var pos = state.toWatch.indexOf(payload.movie);
+                    state.toWatch.splice(pos, 1);
+                    break;
+            }
+            
         }
     },
     actions: {
@@ -117,7 +126,7 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
             localStorage.clear();
             location.reload();
         },
-        removeMovie(context, payload: {movie : Movie}) {
+        removeMovie(context, payload: {movie : Movie, page : String}) {
             context.commit('removeMovie', payload);
             context.dispatch('save');
         },
