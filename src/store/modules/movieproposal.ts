@@ -19,7 +19,8 @@ const movieproposal: Module<{movie: Movie}, any> = {
             else
             {
                 payload.movie.image = '/img/no-image-available.png';
-            } 
+            }
+            payload.movie.popularity = payload.response.data.popularity; 
         }
     },
     actions: {

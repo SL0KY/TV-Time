@@ -3,4 +3,5 @@ export default interface Movie{
     name: string;
     iswatch: boolean;
     image: string;
+    popularity: number;
 }

@@ -31,6 +31,7 @@ export default Vue.extend({
                 name: '',
                 iswatch: false,
                 image: '',
+                popularity: 0,
             },
         }
     },

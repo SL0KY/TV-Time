@@ -37,6 +37,7 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
                     name: payload.movie.name,
                     image: payload.movie.image,
                     iswatch: true,
+                    popularity: payload.movie.popularity,
                 });
             }
         },
@@ -51,6 +52,7 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
                     name: payload.movie.name,
                     image: payload.movie.image,
                     iswatch: false,
+                    popularity: payload.movie.popularity,
                 });
             }
         },
@@ -65,6 +67,7 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
             {
                 payload.movie.image = '/img/no-image-available.png';
             }
+            payload.movie.popularity = payload.response.data.popularity;
         },
         removeMovie(state, payload: {movie : Movie, page : String}) {
             switch(payload.page){
