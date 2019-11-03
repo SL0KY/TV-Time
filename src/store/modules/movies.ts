@@ -109,7 +109,8 @@ const movies: Module<{movies: Movie[], toWatch : Movie[]}, any> = {
             );
         },
         getNewMovie(context, payload: {movie : Movie}) {
-            Axios.get('https://api.themoviedb.org/3/movie/' + getRandomId() +'?api_key=37a283d2876f075d46abb94720f8ec77').then(response => {
+            var url = 'https://api.themoviedb.org/3/movie/' + getRandomId() +'?api_key=37a283d2876f075d46abb94720f8ec77'
+            Axios.get(url).then(response => {
                 if (context.state.movies.filter(function(e) { return e.id === response.data.id ; }).length == 0 || response.data.adult == false) {
                     var movie = payload.movie;
                     context.commit('getNewMovie', { movie, response }); 
