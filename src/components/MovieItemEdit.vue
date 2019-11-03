@@ -15,14 +15,17 @@ import Vue from 'vue';
 import Movie from '@/models/movie';
 
 export default Vue.extend({
+    data(): {page: String} {
+        return {
+            page: document.location.href.substring(document.location.href.lastIndexOf( "/" ) +1),  
+        }
+    },
     props: {
         movie: Object as () => Movie,
     },
     methods:{
         removeMovie() : void{       
-            var url = document.location.href;
-            var page = url.substring(url.lastIndexOf( "/" )+1 );
-            this.$store.dispatch('movies/removeMovie', {movie : this.movie, page})
+            this.$store.dispatch('movies/removeMovie', {movie : this.movie, page: this.page})
         }
     },
 });
