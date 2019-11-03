@@ -2,7 +2,9 @@
  <div>
      <div class="row">
         <h2 class="movieList__h2 col-12 text-left">Movies watched :</h2>
-        <movie-item-edit class="col-6" v-for="movie in movies" :key="movie.id" :movie="movie"></movie-item-edit>
+        <div class="movieItem">
+            <movie-item-edit class="col-6" v-for="movie in movies" :key="movie.id" :movie="movie"></movie-item-edit>
+        </div>
      </div>
  </div>
 </template>

@@ -1,12 +1,16 @@
 <template>
  <div>
      <div class="row">
-        <h2 class="movieList__h2 col-12 text-left">Films vu <router-link class="movieList__a" to="/movies">Tout voir...</router-link></h2>
-        <movie-item class="col-6" v-for="movie in movies.slice(movies.length - 4, movies.length )" :key="movie.id" :movie="movie"></movie-item>
+        <h2 class="movieList__h2 col-12 text-left">Films vu <router-link class="movieList__a router1" to="/movies">Tout voir...</router-link></h2>
+        <div class="movieItem">
+            <movie-item class="col-6" v-for="movie in movies.slice(movies.length - 4, movies.length )" :key="movie.id" :movie="movie"></movie-item>
+        </div>
      </div>
      <div class="row">
-        <h2 class="movieList__h2 col-12 text-left">Films à voir <router-link class="movieList__a" to="/toWatch">Tout voir...</router-link></h2>
-        <movie-item class="col-6" v-for="movieToWatch in toWatch.slice(toWatch.length - 4, toWatch.length )" :key="movieToWatch.id" :movie="movieToWatch"></movie-item>
+        <h2 class="movieList__h2 col-12 text-left">Films à voir <router-link class="movieList__a router2" to="/toWatch">Tout voir...</router-link></h2>
+        <div class="movieItemToWatch">
+            <movie-item class="col-6" v-for="movieToWatch in toWatch.slice(toWatch.length - 4, toWatch.length )" :key="movieToWatch.id" :movie="movieToWatch"></movie-item>
+        </div>
      </div>
  </div>
 </template>
