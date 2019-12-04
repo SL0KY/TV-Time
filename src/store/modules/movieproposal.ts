@@ -1,4 +1,4 @@
-import Movie from '@/models/Movie';
+import Movie from '@/models/movie';
 import { Module } from 'vuex';
 import Axios from 'axios';
 import { getRandomId } from '@/utils/utils';

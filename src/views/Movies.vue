@@ -9,8 +9,8 @@ import Vue from 'vue';
 import MovieListAll from '@/components/MovieListAll.vue';
 
 export default Vue.extend({
-  components:{
-    MovieListAll
+  components: {
+    MovieListAll,
   },
 });
 </script>

@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import MovieItemEdit from '@/components/MovieItemEdit.vue';
+import MovieItemEdit from '@/components/MovieItemEdit/MovieItemEdit.vue';
 import { mapState, mapGetters } from 'vuex';
 
 export default Vue.extend({

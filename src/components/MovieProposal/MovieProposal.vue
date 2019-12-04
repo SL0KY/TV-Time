@@ -14,7 +14,7 @@
      </div>
 
      <form v-if="this.movie.image == ''" @submit.prevent="getNewMovie()">
-        <button>Get movie</button>
+        <button class="movie_proposal__btn_newmovie">Get movie</button>
     </form>
  </div>
 </template>

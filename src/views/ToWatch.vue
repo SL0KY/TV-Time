@@ -9,8 +9,8 @@ import Vue from 'vue';
 import ToWatchListAll from '@/components/ToWatchListAll.vue';
 
 export default Vue.extend({
-  components:{
-      ToWatchListAll
+  components: {
+    ToWatchListAll,
   },
 });
 </script>

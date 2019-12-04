@@ -51,19 +51,19 @@ import Movie from '@/models/movie';
 export default Vue.extend({
     methods: {
         getPopularityAverage(): number {
-            var popularityAverage = 0;
-            var moviesTotal = 0;
+            let popularityAverage = 0;
+            let moviesTotal = 0;
             moviesTotal += this.movies.length;
-            moviesTotal += this.toWatch.length
-            this.movies.forEach(function(movie : Movie){
+            moviesTotal += this.toWatch.length;
+            this.movies.forEach(function(movie: Movie) {
                 popularityAverage += movie.popularity;
             });
-            this.toWatch.forEach(function(movie : Movie){
+            this.toWatch.forEach(function(movie: Movie) {
                 popularityAverage += movie.popularity;
             });
-            return Math.round((popularityAverage / moviesTotal)*100)/100;;
+            return Math.round((popularityAverage / moviesTotal) * 100) / 100;
         },
-        clearStorage() : void {
+        clearStorage(): void {
             this.$store.dispatch('movies/clearStorage');
         },
     },
