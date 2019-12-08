@@ -27,11 +27,11 @@
          </div>
      </div>
      <div class="row">
-        <h2 class="movieList__h2 col-12 text-left">Films vu <router-link class="movieList__a" to="/movies">Tout voir...</router-link></h2>
+        <h2 class="movieList__h2 col-12 text-left">Movies watched <router-link class="movieList__a" to="/movies">Tout voir...</router-link></h2>
         <movie-item class="col-6" v-for="movie in movies.slice(movies.length - 4, movies.length )" :key="movie.id" :movie="movie"></movie-item>
      </div>
      <div class="row">
-        <h2 class="movieList__h2 col-12 text-left">Films à voir <router-link class="movieList__a" to="/toWatch">Tout voir...</router-link></h2>
+        <h2 class="movieList__h2 col-12 text-left">Movies to watch <router-link class="movieList__a" to="/toWatch">Tout voir...</router-link></h2>
         <movie-item class="col-6" v-for="movieToWatch in toWatch.slice(toWatch.length - 4, toWatch.length )" :key="movieToWatch.id" :movie="movieToWatch"></movie-item>
      </div>
      <div class="row">
@@ -55,10 +55,10 @@ export default Vue.extend({
             let moviesTotal = 0;
             moviesTotal += this.movies.length;
             moviesTotal += this.toWatch.length;
-            this.movies.forEach(function(movie: Movie) {
+            this.movies.forEach((movie: Movie) => {
                 popularityAverage += movie.popularity;
             });
-            this.toWatch.forEach(function(movie: Movie) {
+            this.toWatch.forEach((movie: Movie) => {
                 popularityAverage += movie.popularity;
             });
             return Math.round((popularityAverage / moviesTotal) * 100) / 100;

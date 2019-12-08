@@ -15,18 +15,18 @@ import Vue from 'vue';
 import Movie from '@/models/movie';
 
 export default Vue.extend({
-    data(): {page: String} {
+    data(): {page: string} {
         return {
-            page: document.location.href.substring(document.location.href.lastIndexOf( "/" ) +1),  
-        }
+            page: document.location.href.substring(document.location.href.lastIndexOf( '/' ) + 1 ),
+        };
     },
     props: {
         movie: Object as () => Movie,
     },
-    methods:{
-        removeMovie() : void{       
-            this.$store.dispatch('movies/removeMovie', {movie : this.movie, page: this.page})
-        }
+    methods: {
+        removeMovie(): void {
+            this.$store.dispatch('movies/removeMovie', {movie : this.movie, page: this.page});
+        },
     },
 });
 </script>

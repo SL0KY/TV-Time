@@ -33,7 +33,7 @@ export default Vue.extend({
                 image: '',
                 popularity: 0,
             },
-        }
+        };
     },
     methods: {
         getNewMovie(): void {
@@ -42,7 +42,7 @@ export default Vue.extend({
         addMovie(): void {
             this.$store.dispatch('movies/addMovie', {movie: this.movie});
         },
-        addMovieToWatch() : void {
+        addMovieToWatch(): void {
             this.$store.dispatch('movies/addMovieToWatch', {movie: this.movie});
         },
     },

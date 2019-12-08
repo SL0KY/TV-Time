@@ -6,9 +6,8 @@ import movieproposal from '@/store/modules/movieproposal';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  
   modules: {
     movies,
     movieproposal,
-  }
+  },
 });
